@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Week 6 Lab</title>
+</head>
+<body>
+    <h1>Week 6 JavaScript Lab</h1>
+    <p></p>
+    <button>Call Function</button>
+
+    <script>
+        //javascript line comment
+        /*
+        Multi LIne Comment in JS
+        */
+        var firstName = "Matthew";
+        var lastName = "Marold";
+        //String using concatonation
+        var message = firstName + " " + lastName;
+        console.log(message);
+        var messageLiteral = `${firstName} ${lastName}`;
+        console.log(messageLiteral);
+        // Alert message to display data quickly, Typically not used in a shipped site.
+        //alert(message);
+        //alter(messageLiteral);
+        function outputtoPage(tag, msg, color){
+            document.querySelector(tag).innerHTML =  msg;
+            document.querySelector(tag).style.color = "red";
+        };
+        outputtoPage("p", messageLiteral, "#0000ff");
+
+
+            var promptButton = document.querySelector("button");
+           //  promptButton.addEventListener("click", ()=>{
+           //   outputtoPage("p", "Wouldnt you like to be a pepper too??", "000ffff");
+           //   document.querySelector("p").style.fontFamily = "Arial";
+
+           // });
+        promptButton.addEventListener("click", dataPrompt);
+
+        function dataPrompt(){
+            alert(`My name is ${firstName} welcome to my program`);
+            var yourName = prompt("Please tell me your name.");
+            alert(`Hello ${yourName}, nice to meet you.`);
+            var yourLastName = prompt("Please tell me your last name.");
+            alert(`Your full name is ${yourName} ${yourLastName}`);
+            
+            
+            let firstNumber = prompt("What is ur first Number?");
+            let secondNumber = prompt("What is your second number?");
+
+            let result = Number(firstNumber) * Number(secondNumber);
+
+            alert(`This is your result ${result}`);
+
+            //example of javascript creating elements
+
+            let documentBody = document.querySelector("body");
+            var outputElement = document.createElement("p");
+
+            outputElement.innerHTML = `Your name is ${yourName}  ${yourLastName} 
+            <br>The Result of ur numbers is ${result}<br> Thank You, <br> ${firstName} ${lastName};`
+
+            documentBody.appendChild(outputElement);
+
+
+
+        }
+        </script>
+    </body>
+</html>
