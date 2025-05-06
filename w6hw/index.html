@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Week 6 Pay Calculator">
+    <meta name="author" content="Matthew Marold">
+    <title>Payroll Calculator</title>
+</head>
+<body>
+    <h1>Payroll Calculator</h1>
+    <p>Click the button below to enter your hourly pay, hours worked, and tax rate to calculate your pay!</p>
+
+    <!-- Button to trigger the calculations -->
+    <button onclick="calculatePay()">Calculate Pay</button>
+
+    <script>
+        // Function to calculate pay when the button is clicked
+        function calculatePay() {
+            // Prompt the user for input and convert them to numbers
+            let hourlyPay = parseFloat(prompt("Enter your hourly pay (e.g. 14.50):")); // Converts string to number
+            let hoursWorked = parseInt(prompt("Enter the number of hours worked per week (e.g. 32):")); // Converts string to integer
+            let taxRate = parseFloat(prompt("Enter the tax rate (e.g. 0.20 for 20%):")); // Converts string to number
+
+            // Calculate the Gross Pay (Hourly Pay * Hours Worked * 2 for two weeks)
+            let grossPay = hourlyPay * hoursWorked * 2;
+
+            // Calculate Uncle Sam's Share (Tax Rate * Gross Pay)
+            let uncleSamShare = grossPay * taxRate;
+
+            // Calculate the Net Pay (Gross Pay - Uncle Sam's Share)
+            let netPay = grossPay - uncleSamShare;
+
+            // Display the results using alert and console.log with proper formatting
+            alert("Gross Pay: $" + grossPay.toFixed(2) + "\n" +
+                  "Uncle Sam's Share: $" + uncleSamShare.toFixed(2) + "\n" +
+                  "Net Pay: $" + netPay.toFixed(2));
+
+            // Log the results to the console
+            console.log("Gross Pay: $" + grossPay.toFixed(2));
+            console.log("Uncle Sam's Share: $" + uncleSamShare.toFixed(2));
+            console.log("Net Pay: $" + netPay.toFixed(2));
+        }
+    </script>
+</body>
+</html>
